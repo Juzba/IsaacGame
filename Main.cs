@@ -2,6 +2,8 @@
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using IsaacGame.Skripts.UpdateContent;
+using IsaacGame.Skripts.Menu;
+
 
 namespace IsaacGame.Skripts.Draw;
 
@@ -32,7 +34,7 @@ public class Main : Game
     protected override void LoadContent()
     {
         _spriteBatch = new SpriteBatch(GraphicsDevice);
-        Menu.Content(this);
+        DrawMenu.Content(this);
 
     }
 
@@ -50,7 +52,7 @@ public class Main : Game
         _spriteBatch.Begin();
 
 
-        if(Settings.SettingsThis.OpenMenu) Menu.Draw(_spriteBatch, this);
+        if(Settings.SettingsThis.OpenMenu) DrawMenu.Draw(_spriteBatch, this, gameTime);
 
 
 

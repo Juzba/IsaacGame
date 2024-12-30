@@ -1,4 +1,5 @@
 ﻿using IsaacGame.Skripts.Draw;
+using IsaacGame.Skripts.Menu;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Input;
 using System.Diagnostics;
@@ -11,8 +12,8 @@ namespace IsaacGame.Skripts.UpdateContent
         {
             if (!KeyMapMenu.Stopwatch.IsRunning)
             {
-                if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape)) 
-                { Settings.SettingsThis.OpenMenu = true; KeyMapMenu.Stopwatch.Start(); }
+                if (GamePad.GetState(PlayerIndex.One).Buttons.Start == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))    // Escape
+                { Settings.SettingsThis.OpenMenu = true; KeyMapMenu.Stopwatch.Start(); DrawMenu.Count = 0; }
 
                 //else if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape)) main.Exit();
 
