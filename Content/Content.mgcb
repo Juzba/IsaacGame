@@ -37,6 +37,13 @@
 /processorParam:TextureFormat=Color
 /build:Sprites/Menu/BackLightRed50.png
 
+#begin Sprites/Menu/Font50.spritefont
+/importer:FontDescriptionImporter
+/processor:FontDescriptionProcessor
+/processorParam:PremultiplyAlpha=True
+/processorParam:TextureFormat=Compressed
+/build:Sprites/Menu/Font50.spritefont
+
 #begin Sprites/Menu/FontMenu.spritefont
 /importer:FontDescriptionImporter
 /processor:FontDescriptionProcessor
@@ -61,6 +68,12 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:Sprites/Menu/MenuBackground.png
+
+#begin Sprites/Menu/pick2.mp3
+/importer:Mp3Importer
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Sprites/Menu/pick2.mp3
 
 #begin Sprites/Menu/Pixel.png
 /importer:TextureImporter

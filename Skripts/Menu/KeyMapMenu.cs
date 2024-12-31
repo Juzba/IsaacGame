@@ -9,33 +9,39 @@ namespace IsaacGame.Skripts.Menu
     internal class KeyMapMenu
     {
         public static Stopwatch Stopwatch = new();
+        public static Vector2 MousePosition;
+
+
 
 
 
 
         public static void HotKeys(Main main)
         {
+
+            MousePosition = new Vector2(Mouse.GetState().X, Mouse.GetState().Y);
+            Index.IndexChangeMouse(main);                                                                                       // Při pohybu mýší oznčí položku menu
+
             var _gamePadState = GamePad.GetState(PlayerIndex.One);
             Vector2 _leftThumbStick = _gamePadState.ThumbSticks.Left;
+
 
             if (!Stopwatch.IsRunning)
             {
                 if (_gamePadState.Buttons.Start == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))       // Escape
-                    { Settings.SettingsThis.OpenMenu = false; Stopwatch.Start(); UpdateMenu.Index = -1; }
-
+                      { Settings.SettingsThis.OpenMenu = false; Stopwatch.Start(); Index.IndexPosition = -1; }
+    
                 else if (_leftThumbStick.Y > 0.2f || Keyboard.GetState().IsKeyDown(Keys.W))                                 // W
-                    { UpdateMenu.IndexChange(-1); }
+                     { Index.IndexChangeKeyboard(-1); }
 
                 else if (_leftThumbStick.Y < -0.2f || Keyboard.GetState().IsKeyDown(Keys.S))                                // S
-                    { UpdateMenu.IndexChange(+1); }
+                     { Index.IndexChangeKeyboard(+1); }
 
 
 
 
-                else if(_gamePadState.Buttons.A == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Enter))        // Enter
-                {
-                    UpdateMenu.DrawFromMenu(main);
-                }
+                else if (_gamePadState.Buttons.A == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Enter))        // Enter
+                     { Index.DrawFromMenu(main); }
 
 
 

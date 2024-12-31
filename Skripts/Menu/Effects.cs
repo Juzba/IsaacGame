@@ -1,5 +1,4 @@
 ﻿using System;
-using IsaacGame.Skripts.Menu;
 
 namespace IsaacGame.Skripts.Menu
 {
@@ -8,6 +7,9 @@ namespace IsaacGame.Skripts.Menu
 
         private static bool _up = true;
         private static int _count = 0;
+        private static int _lastCount = 0;
+        private static double _lastTime = 0;
+        private static int _lastFps = 0;
 
 
 
@@ -30,13 +32,20 @@ namespace IsaacGame.Skripts.Menu
             return 0;
         }
 
-        public static int OpenEffect(int size , int count) => (count * 90 < size) ? count * 90 : size;
+        public static int OpenEffect(int size, int count) => (count * 90 < size) ? count * 90 : size;
 
-        public static int FPS(int count, int time)
+        public static int FPS(int count, double time)
         {
-
-            return 0;
+            if (time - _lastTime >= 1000) 
+            { 
+                _lastTime = time;
+                _lastFps = count - _lastCount; 
+                _lastCount = count; 
+            }
+            return _lastFps;
         }
+
+
 
 
 

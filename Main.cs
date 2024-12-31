@@ -12,6 +12,8 @@ public class Main : Game
 {
     private GraphicsDeviceManager _graphics;
     private SpriteBatch _spriteBatch;
+
+    //public Main ThisMain = this;
     
 
     public Main()
